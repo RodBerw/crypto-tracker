@@ -57,14 +57,14 @@ export default function Home() {
         <Spinner color="primary" />
       </div>
     );
-  // if (error)
-  //   return (
-  //     <div className="w-full h-screen flex items-center justify-center">
-  //       <p className="text-2xl font-bold">
-  //         Request limit exceeded. Please try again later.
-  //       </p>
-  //     </div>
-  //   );
+  if (error)
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <p className="text-2xl font-bold">
+          Request limit exceeded. Please try again later.
+        </p>
+      </div>
+    );
 
   return (
     <div className="h-screen font-sans w-full flex p-12 gap-8 ">

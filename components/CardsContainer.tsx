@@ -13,7 +13,7 @@ export default function CardContainer({
   setSelectedCoin: React.Dispatch<React.SetStateAction<Coin | null>>;
 }) {
   return (
-    <div className="w-full py-4 pr-2 overflow-y-auto overflow-x-hidden h-fit max-h-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+    <div className="w-full py-4 px-2 overflow-y-auto overflow-x-hidden h-fit max-h-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
       {allCoins.map((coin) => (
         <div
           className={`cursor-pointer hover:brightness-105 transition duration-300 ease-in-out `}
