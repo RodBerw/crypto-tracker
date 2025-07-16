@@ -1,8 +1,12 @@
 @import "tailwindcss";
+@plugin '../hero.ts';
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
+  --background: #101828;
   --foreground: #171717;
+  --primary: #ffb900;
 }
 
 @theme inline {
@@ -10,12 +14,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #ffb900;
   }
 }
 
@@ -23,4 +29,61 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo do Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Fundo do scrollbar */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Alça do scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.3s;
+}
+
+/* Alça do scrollbar ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animations */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 4s ease infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
