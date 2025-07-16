@@ -28,6 +28,8 @@ CoinGecko API — Reliable and free crypto market data source.
 
 ## 📷 Preview
 
+![alt text](image.png)
+
 ## 🔧 Installation
 
 Clone the repository:
