@@ -34,7 +34,7 @@ export default function ChartSection({
     <div className="bg-gray-800 border-1 border-gray-700 rounded-2xl p-4 shadow-inner">
       <div className="w-full flex gap-2 justify-between items-start">
         <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          📈Price Trend (7 days)
+          📈Price Trend ({daysMap[filterRange]})
         </h2>
         <Dropdown>
           <DropdownTrigger>
