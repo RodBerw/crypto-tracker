@@ -5,6 +5,7 @@ import DetailsSection from "@/components/details/DetailsSection";
 import MenuHeader from "@/components/MenuHeader";
 import api from "@/config/configApi";
 import { Coin } from "@/types/types";
+import { Input } from "@heroui/react";
 import { Spinner } from "@heroui/spinner";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
@@ -38,6 +39,7 @@ export default function Home() {
   const [paginatedCoins, setPaginatedCoins] = useState<Coin[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCoin, setSelectedCoin] = useState<Coin | null>(null);
+  const [search, setSearch] = useState("");
 
   const pageLength = 25;
 
@@ -55,21 +57,41 @@ export default function Home() {
         <Spinner color="primary" />
       </div>
     );
-  if (error)
-    return (
-      <div className="w-full h-screen flex items-center justify-center">
-        <p className="text-2xl font-bold">
-          Request limit exceeded. Please try again later.
-        </p>
-      </div>
-    );
+  // if (error)
+  //   return (
+  //     <div className="w-full h-screen flex items-center justify-center">
+  //       <p className="text-2xl font-bold">
+  //         Request limit exceeded. Please try again later.
+  //       </p>
+  //     </div>
+  //   );
 
   return (
     <div className="h-screen font-sans w-full flex p-12 gap-8 ">
       <div className="w-full flex flex-col gap-4">
         <MenuHeader />
+        <div className="w-full flex items-center justify-between">
+          <Input
+            type="text"
+            className="w-1/4 rounded-lg border-none text-white !focus:bg-gray-800"
+            classNames={{
+              inputWrapper: "bg-gray-800 !focus:bg-gray-800 border-none",
+            }}
+            placeholder="Search"
+            variant="faded"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
         <CardContainer
-          allCoins={paginatedCoins || []}
+          allCoins={
+            paginatedCoins.filter(
+              (coin) =>
+                !search ||
+                coin.name.toLowerCase().includes(search.toLowerCase()) ||
+                coin.symbol.toLowerCase().includes(search.toLowerCase())
+            ) || []
+          }
           selectedCoin={selectedCoin}
           setSelectedCoin={setSelectedCoin}
         />

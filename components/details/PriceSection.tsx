@@ -2,7 +2,10 @@ import { Coin } from "@/types/types";
 
 export default function PriceSection({ coin }: { coin: Coin | null }) {
   return (
-    <div className="w-full grid grid-cols-3 gap-6 border-y border-gray-700 py-6 text-sm text-gray-300 fade-in">
+    <div
+      key={coin?.id}
+      className="w-full grid grid-cols-3 gap-6 border-y border-gray-700 py-6 text-sm text-gray-300 fade-in"
+    >
       <div>
         <p className="mb-1 text-xs uppercase tracking-wider">Current Price</p>
         <p className="text-xl font-bold">

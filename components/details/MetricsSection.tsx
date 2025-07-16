@@ -2,7 +2,10 @@ import { Coin } from "@/types/types";
 
 export default function MetricSection({ coin }: { coin: Coin | null }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs xl:text-sm text-wrap wrap-anywhere text-gray-300 fade-in">
+    <div
+      key={coin?.id}
+      className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs xl:text-sm text-wrap wrap-anywhere text-gray-300 fade-in"
+    >
       <div className="bg-gray-800/50 rounded-lg p-4 flex flex-col items-start gap-1">
         <p className="text-xs uppercase tracking-wide">All Time High</p>
         <span className="font-bold text-white">

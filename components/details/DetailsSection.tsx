@@ -90,7 +90,7 @@ export default function DetailsSection({ coin }: { coin: Coin | null }) {
         <DetailsHeader coin={coin} isPositive={isPositive} />
 
         {/* Price Section */}
-        <PriceSection coin={coin} key={coin?.id} />
+        <PriceSection coin={coin} />
 
         {/* Chart Section */}
         <ChartSection
@@ -100,7 +100,7 @@ export default function DetailsSection({ coin }: { coin: Coin | null }) {
         />
 
         {/* Metrics Section */}
-        <MetricSection coin={coin} key={coin?.id} />
+        <MetricSection coin={coin} />
 
         <p className="text-xs mt-6 text-gray-500 text-right">
           Last Updated: {new Date(coin?.last_updated).toLocaleString("en-US")}
